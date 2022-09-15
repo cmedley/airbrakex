@@ -5,7 +5,7 @@ defmodule Airbrakex.LoggerParser do
   @exception_header_regex ~r/an exception was raised:/
 
   def parse(msg) do
-    msg = Regex.replace(~r/GenServer.*>/, msg, "GenServer error")
+    msg = Regex.replace(~r/#PID<0.3433.0>/, msg, "")
 
     type = Regex.named_captures(@type_regex, msg)["type"]
     lines = String.split(msg, "\n")
